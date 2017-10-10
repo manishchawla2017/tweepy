@@ -8,5 +8,7 @@ count=0
 user=login.api.get_user('isro')
 print user.followers_count
 #find list of followers
-for follower in login.api.followers_ids('isro'):
-    print login.api.get_user(follower).screen_name
+#for follower in login.api.followers_ids('isro'):
+ #   print login.api.get_user(follower).screen_name
+for users in tweepy.Cursor(login.api.followers,screen_name='isro').items():
+     print users.screen_name

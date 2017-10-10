@@ -13,10 +13,10 @@ def csv_dump(outfile,id, created_at,text):
     writer.writerow(["id", "created_at", "text"])
     writer.writerow([id, created_at, text])
     file.close()
-def mongo_dump(outfile):
+def mongo_dump(outfile,collections):
     MONGO_HOST='mongodb://localhost/twitterdb'
     client=MongoClient(MONGO_HOST)
     db=client.twitterdb
-    db.isro.insert(outfile)
+    db.collections.insert(outfile)
 
 
